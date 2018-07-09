@@ -1,6 +1,5 @@
 """""
 Module to convert one number to another with different numeral system
-@author: Fanzil
 
 """""
 
