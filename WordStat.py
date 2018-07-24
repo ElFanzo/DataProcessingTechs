@@ -31,4 +31,4 @@ NumStat = stat(numbers)
 DigStat.sort(key=S, reverse=True)
 NumStat.sort(key=S, reverse=True)
 
-print("Цифры:", digits, "\nЧисла:", numbers, "\n\nСтатистика цифр:", DigStat, "\nСтатистика чисел:", NumStat)
+print(f'Цифры: {digits}\nЧисла: {numbers}\n\nСтатистика цифр: {DigStat}\nСтатистика чисел: {NumStat}')
