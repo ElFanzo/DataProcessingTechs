@@ -39,7 +39,7 @@ class Convert:
         if base == 16:
             return hex(number)[2:].upper()
         res = ''
-        while number != 0:
+        while number:
             mod = number % base
             if base > 10:
                 t = mod + 48
