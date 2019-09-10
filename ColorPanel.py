@@ -1,6 +1,5 @@
 from tkinter import Tk, Frame, Scale, Label
-from bs4 import BeautifulSoup
-from requests import get
+from grab import Grab
 
 
 class Palette(Frame):
@@ -21,7 +20,7 @@ class Palette(Frame):
 
     def change(self):
         """
-        Label color changing.
+        Change the color's label.
         """
         r, g, b = map(int, (self.r, self.g, self.b))
         color = '#%s%s%s' % (hex(r)[2:].zfill(2), hex(g)[2:].zfill(2), hex(b)[2:].zfill(2))
@@ -64,17 +63,16 @@ class Palette(Frame):
 
     def getColors(self):
         """
-        Getting a list of color names.
+        Get a list of color names.
         """
-        req = get('http://www.color-hex.com/color-names.html')
-        bs = BeautifulSoup(req.content, 'html5lib')
+        g = Grab(transport='urllib3')
+        g.go('http://www.color-hex.com/color-names.html')
 
-        rows = bs.find('div', class_='content').find('table').find_all('tr')
-
+        rows = g.doc.select('/html/body/div[2]/div/table/tr')
         for row in rows[1:]:
-            name = row.find('td').text
-            hex = row.find_all('td')[2].text
-            self.colors[hex] = name
+            name = row.select('td[1]').text()
+            _hex = row.select('td[3]').text()
+            self.colors[_hex] = name
 
 
 if __name__ == '__main__':
