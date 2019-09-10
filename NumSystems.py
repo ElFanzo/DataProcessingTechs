@@ -9,11 +9,11 @@ class Convert:
     @staticmethod
     def convert(number, baseInit, baseFinal):
         """
-        Convert number with baseInit numeral system to number with baseFinal numeral system.
-        :param number: Init number
-        :param baseInit: Base of init number
-        :param baseFinal: Base of final number
-        :return: Final number
+        Convert a number with the baseInit numeral system to a number with the baseFinal numeral system.
+        :param number: The initial number
+        :param baseInit: A base of the initial number
+        :param baseFinal: A base of the final number
+        :return: The final number
         """
         baseInit = int(baseInit)
         baseFinal = int(baseFinal)
