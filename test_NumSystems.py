@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from NumSystems import Convert
+from num_systems import Convert
 
 
 class TestNumSys(TestCase):
