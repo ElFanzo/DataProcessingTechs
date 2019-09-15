@@ -6,6 +6,7 @@ class Palette(Frame):
     """
     Palette class implementation.
     """
+
     def __init__(self, parent):
         Frame.__init__(self, parent)
         self.parent = parent
@@ -23,7 +24,11 @@ class Palette(Frame):
         Change the color's label.
         """
         r, g, b = map(int, (self.r, self.g, self.b))
-        color = '#%s%s%s' % (hex(r)[2:].zfill(2), hex(g)[2:].zfill(2), hex(b)[2:].zfill(2))
+        color = "#%s%s%s" % (
+            hex(r)[2:].zfill(2),
+            hex(g)[2:].zfill(2),
+            hex(b)[2:].zfill(2),
+        )
         self.label.configure(bg=color)
         try:
             self.name.configure(text=self.colors[color])
@@ -45,40 +50,64 @@ class Palette(Frame):
     def run(self):
         self.pack()
 
-        label = Label(self, bg='black', height=20, width=40)
+        label = Label(self, bg="black", height=20, width=40)
         label.pack()
-        name = Label(self, text='black')
+        name = Label(self, text="black")
         name.pack()
         self.name = name
         self.label = label
 
-        red = Scale(self, from_=0, to=255, orient='horizontal', length=256, label='Red', command=self.changeRed)
+        red = Scale(
+            self,
+            from_=0,
+            to=255,
+            orient="horizontal",
+            length=256,
+            label="Red",
+            command=self.changeRed,
+        )
         red.pack()
 
-        green = Scale(self, from_=0, to=255, orient='horizontal', length=256, label='Green', command=self.changeGreen)
+        green = Scale(
+            self,
+            from_=0,
+            to=255,
+            orient="horizontal",
+            length=256,
+            label="Green",
+            command=self.changeGreen,
+        )
         green.pack()
 
-        blue = Scale(self, from_=0, to=255, orient='horizontal', length=256, label='Blue', command=self.changeBlue)
+        blue = Scale(
+            self,
+            from_=0,
+            to=255,
+            orient="horizontal",
+            length=256,
+            label="Blue",
+            command=self.changeBlue,
+        )
         blue.pack()
 
     def getColors(self):
         """
         Get a list of color names.
         """
-        g = Grab(transport='urllib3')
-        g.go('http://www.color-hex.com/color-names.html')
+        g = Grab(transport="urllib3")
+        g.go("http://www.color-hex.com/color-names.html")
 
-        rows = g.doc.select('/html/body/div[2]/div/table/tr')
+        rows = g.doc.select("/html/body/div[2]/div/table/tr")
         for row in rows[1:]:
-            name = row.select('td[1]').text()
-            _hex = row.select('td[3]').text()
+            name = row.select("td[1]").text()
+            _hex = row.select("td[3]").text()
             self.colors[_hex] = name
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     master = Tk()
     master.maxsize(350, 550)
     master.minsize(350, 550)
-    master.title('Palette')
+    master.title("Palette")
     palette = Palette(master)
     master.mainloop()

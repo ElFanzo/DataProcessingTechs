@@ -9,22 +9,22 @@ import os
 
 def combine():
     try:
-        os.mkdir('results')
+        os.mkdir("results")
     except FileExistsError:
         pass
 
-    files_content = open('results/files_content.tsv', 'w')
-    files_name = open('results/files_name.tsv', 'w')
+    files_content = open("results/files_content.tsv", "w")
+    files_name = open("results/files_name.tsv", "w")
 
-    for file in os.listdir('.'):
-        if file.endswith('.tsv'):
-            with open(file, 'r') as f:
-                files_content.write(f.read().replace('\n', ',') + '\n')
-                files_name.write(file + '\n')
+    for file in os.listdir("."):
+        if file.endswith(".tsv"):
+            with open(file, "r") as f:
+                files_content.write(f.read().replace("\n", ",") + "\n")
+                files_name.write(file + "\n")
 
     files_content.close()
     files_name.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     combine()

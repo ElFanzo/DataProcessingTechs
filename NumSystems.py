@@ -1,10 +1,8 @@
-"""""
-Module to convert one number to another with different numeral system.
-
-"""""
-
-
 class Convert:
+    """
+    Class to convert one number to another with different numeral system.
+
+    """
 
     @staticmethod
     def convert(number, baseInit, baseFinal):
@@ -18,12 +16,18 @@ class Convert:
         baseInit = int(baseInit)
         baseFinal = int(baseFinal)
         if baseInit < 2 or baseInit > 36 or baseFinal < 2 or baseFinal > 36:
-            raise ValueError('Base of the number must be at least 2 and not more than 36!')
+            raise ValueError(
+                "Base of the number must be at least 2 and not more than 36!"
+            )
         if baseInit == 10:
             return str(Convert._convertDecimalToOther(number, baseFinal))
         if baseFinal == 10:
             return str(Convert._convertOtherToDecimal(number, baseInit))
-        return str(Convert._convertDecimalToOther(Convert._convertOtherToDecimal(number, baseInit), baseFinal))
+        return str(
+            Convert._convertDecimalToOther(
+                Convert._convertOtherToDecimal(number, baseInit), baseFinal
+            )
+        )
 
     @staticmethod
     def _convertOtherToDecimal(number, base):
@@ -38,7 +42,7 @@ class Convert:
             return oct(number)[2:].upper()
         if base == 16:
             return hex(number)[2:].upper()
-        res = ''
+        res = ""
         while number:
             mod = number % base
             if base > 10:
@@ -52,13 +56,13 @@ class Convert:
         return res[::-1].upper()
 
 
-if __name__ == '__main__':
-    assert Convert.convert(10, 10, 2) == '1010'
-    assert Convert.convert(1000, 2, 10) == '8'
-    assert Convert.convert(1000, 2, 8) == '10'
-    assert Convert.convert(1010, 2, 16) == 'A'
-    assert Convert.convert('Python', 35, 36) == 'MKVTTW'
-    E = int(Convert.convert('E', 16, 10))
-    DA = int(Convert.convert('DA', 16, 10))
-    BEC = int(Convert.convert('BEC', 16, 10))
+if __name__ == "__main__":
+    assert Convert.convert(10, 10, 2) == "1010"
+    assert Convert.convert(1000, 2, 10) == "8"
+    assert Convert.convert(1000, 2, 8) == "10"
+    assert Convert.convert(1010, 2, 16) == "A"
+    assert Convert.convert("Python", 35, 36) == "MKVTTW"
+    E = int(Convert.convert("E", 16, 10))
+    DA = int(Convert.convert("DA", 16, 10))
+    BEC = int(Convert.convert("BEC", 16, 10))
     assert E * DA == BEC
