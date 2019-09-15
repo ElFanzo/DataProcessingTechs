@@ -16,7 +16,7 @@ class Palette(Frame):
         self.r = 0
         self.g = 0
         self.b = 0
-        self.getColors()
+        self.get_colors()
         self.run()
 
     def change(self):
@@ -35,15 +35,15 @@ class Palette(Frame):
         except KeyError:
             self.name.configure(text=color)
 
-    def changeRed(self, val):
+    def change_red(self, val):
         self.r = val
         self.change()
 
-    def changeGreen(self, val):
+    def change_green(self, val):
         self.g = val
         self.change()
 
-    def changeBlue(self, val):
+    def change_blue(self, val):
         self.b = val
         self.change()
 
@@ -64,7 +64,7 @@ class Palette(Frame):
             orient="horizontal",
             length=256,
             label="Red",
-            command=self.changeRed,
+            command=self.change_red,
         )
         red.pack()
 
@@ -75,7 +75,7 @@ class Palette(Frame):
             orient="horizontal",
             length=256,
             label="Green",
-            command=self.changeGreen,
+            command=self.change_green,
         )
         green.pack()
 
@@ -86,11 +86,11 @@ class Palette(Frame):
             orient="horizontal",
             length=256,
             label="Blue",
-            command=self.changeBlue,
+            command=self.change_blue,
         )
         blue.pack()
 
-    def getColors(self):
+    def get_colors(self):
         """
         Get a list of color names.
         """
