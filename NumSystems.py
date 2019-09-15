@@ -20,21 +20,21 @@ class Convert:
                 "Base of the number must be at least 2 and not more than 36!"
             )
         if baseInit == 10:
-            return str(Convert._convertDecimalToOther(number, baseFinal))
+            return str(Convert._convert_dec_to_other(number, baseFinal))
         if baseFinal == 10:
-            return str(Convert._convertOtherToDecimal(number, baseInit))
+            return str(Convert._convert_to_dec(number, baseInit))
         return str(
-            Convert._convertDecimalToOther(
-                Convert._convertOtherToDecimal(number, baseInit), baseFinal
+            Convert._convert_dec_to_other(
+                Convert._convert_to_dec(number, baseInit), baseFinal
             )
         )
 
     @staticmethod
-    def _convertOtherToDecimal(number, base):
+    def _convert_to_dec(number, base):
         return int(str(number), base=base)
 
     @staticmethod
-    def _convertDecimalToOther(number, base):
+    def _convert_dec_to_other(number, base):
         number = int(number)
         if base == 2:
             return bin(number)[2:].upper()
