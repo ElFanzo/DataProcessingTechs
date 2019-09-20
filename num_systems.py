@@ -7,7 +7,8 @@ class Convert:
     @staticmethod
     def convert(number, baseInit, baseFinal):
         """
-        Convert a number with the baseInit numeral system to a number with the baseFinal numeral system.
+        Convert a number with the baseInit numeral system to a number with the
+        baseFinal numeral system.
         :param number: The initial number
         :param baseInit: A base of the initial number
         :param baseFinal: A base of the final number
@@ -54,15 +55,3 @@ class Convert:
                 res += str(mod)
             number //= base
         return res[::-1].upper()
-
-
-if __name__ == "__main__":
-    assert Convert.convert(10, 10, 2) == "1010"
-    assert Convert.convert(1000, 2, 10) == "8"
-    assert Convert.convert(1000, 2, 8) == "10"
-    assert Convert.convert(1010, 2, 16) == "A"
-    assert Convert.convert("Python", 35, 36) == "MKVTTW"
-    E = int(Convert.convert("E", 16, 10))
-    DA = int(Convert.convert("DA", 16, 10))
-    BEC = int(Convert.convert("BEC", 16, 10))
-    assert E * DA == BEC
