@@ -1,3 +1,3 @@
 # DataProcessingTechs
 
-Home tasks example of "Data processing technologies" course.
+Home tasks examples of "Data processing technologies" course.
