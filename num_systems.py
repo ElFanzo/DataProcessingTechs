@@ -1,9 +1,4 @@
 class Convert:
-    """
-    Class to convert one number to another with different numeral system.
-
-    """
-
     @staticmethod
     def convert(number, baseInit, baseFinal):
         """
