@@ -1,6 +1,6 @@
 class Convert:
     @staticmethod
-    def convert(number, baseInit, baseFinal):
+    def convert(number, base_init, base_final):
         """Convert a number with the base_init numeral system to a number with
         the base_final numeral system.
 
@@ -9,19 +9,21 @@ class Convert:
         :param base_final: a base of the final number
         :return: the final number
         """
-        baseInit = int(baseInit)
-        baseFinal = int(baseFinal)
-        if baseInit < 2 or baseInit > 36 or baseFinal < 2 or baseFinal > 36:
+        base_init = int(base_init)
+        base_final = int(base_final)
+
+        if not (1 < base_init < 37) or not (1 < base_final < 37):
             raise ValueError(
                 "Base of the number must be at least 2 and not more than 36!"
             )
-        if baseInit == 10:
-            return str(Convert._convert_dec_to_other(number, baseFinal))
-        if baseFinal == 10:
-            return str(Convert._convert_to_dec(number, baseInit))
+
+        if base_init == 10:
+            return str(Convert._convert_dec_to_other(number, base_final))
+        if base_final == 10:
+            return str(Convert._convert_to_dec(number, base_init))
         return str(
             Convert._convert_dec_to_other(
-                Convert._convert_to_dec(number, baseInit), baseFinal
+                Convert._convert_to_dec(number, base_init), base_final
             )
         )
 
@@ -32,12 +34,14 @@ class Convert:
     @staticmethod
     def _convert_dec_to_other(number, base):
         number = int(number)
+
         if base == 2:
             return bin(number)[2:].upper()
         if base == 8:
             return oct(number)[2:].upper()
         if base == 16:
             return hex(number)[2:].upper()
+
         res = ""
         while number:
             mod = number % base
@@ -49,4 +53,5 @@ class Convert:
             else:
                 res += str(mod)
             number //= base
+
         return res[::-1].upper()

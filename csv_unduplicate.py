@@ -3,7 +3,7 @@
 import os
 
 
-if __name__ == "__main__":
+def unduplicate():
     files = []
     names = []
     for file in os.listdir("."):
@@ -17,3 +17,7 @@ if __name__ == "__main__":
 
         with open(names[i], "w", encoding="utf-8") as file:
             file.write(",".join(row for row in files[i]))
+
+
+if __name__ == "__main__":
+    unduplicate()
