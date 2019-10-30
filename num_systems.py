@@ -1,13 +1,13 @@
 class Convert:
     @staticmethod
     def convert(number, baseInit, baseFinal):
-        """
-        Convert a number with the baseInit numeral system to a number with the
-        baseFinal numeral system.
-        :param number: The initial number
-        :param baseInit: A base of the initial number
-        :param baseFinal: A base of the final number
-        :return: The final number
+        """Convert a number with the base_init numeral system to a number with
+        the base_final numeral system.
+
+        :param number: the initial number
+        :param base_init: a base of the initial number
+        :param base_final: a base of the final number
+        :return: the final number
         """
         baseInit = int(baseInit)
         baseFinal = int(baseFinal)

@@ -1,6 +1,4 @@
-"""
-Unduplicate .csv files, existing in the current directory.
-"""
+"""Unduplicate .csv files, existing in the current directory."""
 
 import os
 

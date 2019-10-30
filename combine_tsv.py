@@ -1,5 +1,4 @@
-"""
-This script combines all the .tsv(tab separated values) files into two .tsv
+"""This script combines all the .tsv(tab separated values) files into two .tsv
 files. One contains file names, another - their content.
 Files are creating in 'results' directory.
 """

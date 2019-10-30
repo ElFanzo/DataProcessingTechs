@@ -3,9 +3,7 @@ from grab import Grab
 
 
 class Palette(Frame):
-    """
-    Palette class implementation.
-    """
+    """Palette class implementation."""
 
     def __init__(self, parent):
         Frame.__init__(self, parent)
@@ -20,9 +18,7 @@ class Palette(Frame):
         self.run()
 
     def change(self):
-        """
-        Change the color's label.
-        """
+        """Change the color's label."""
         r, g, b = map(int, (self.r, self.g, self.b))
         color = "#%s%s%s" % (
             hex(r)[2:].zfill(2),
@@ -91,9 +87,7 @@ class Palette(Frame):
         blue.pack()
 
     def get_colors(self):
-        """
-        Get a list of color names.
-        """
+        """Get a list of color names."""
         g = Grab(transport="urllib3")
         g.go("http://www.color-hex.com/color-names.html")
 

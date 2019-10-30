@@ -1,13 +1,11 @@
-"""
-Determine the entered year in Chinese astrology.
-"""
+"""Determine the entered year in Chinese astrology."""
 
 
 def what_year(year):
-    """
-    Find out information about a year.
-    :param year: A year
-    :return: Information about a year
+    """Find out information about a year.
+
+    :param year: a year
+    :return: information about the year
     """
     year = int(year)
     if year < 1:
