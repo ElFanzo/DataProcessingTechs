@@ -29,7 +29,7 @@ class Convert:
         )
 
     @staticmethod
-    def _convert_to_dec(number, base):
+    def __convert_to_dec(number, base):
         """Translate a number to the decimal numeral system.
 
         :param number: the initial number
@@ -39,7 +39,7 @@ class Convert:
         return int(str(number), base=base)
 
     @staticmethod
-    def _convert_dec_to_other(number, base):
+    def __convert_dec_to_other(number, base):
         """Translate the decimal number to another numeral system.
 
         :param number: the initial number
