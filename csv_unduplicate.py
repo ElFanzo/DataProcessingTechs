@@ -9,7 +9,9 @@ def unduplicate():
     names = []
     for file in os.listdir("."):
         if file.endswith(".csv"):
-            files.append(set(open(file, "r", encoding="utf-8").read().split(",")))
+            files.append(
+                set(open(file, "r", encoding="utf-8").read().split(","))
+            )
             names.append(file)
 
     for i in range(1, len(files)):

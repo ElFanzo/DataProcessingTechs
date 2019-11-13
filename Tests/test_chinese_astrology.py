@@ -5,7 +5,7 @@ from chinese_astrology import what_year
 class TestYear(TestCase):
     def test_what_year(self):
         self.assertEqual(
-            what_year(2019), "2019 is the yellow pig year. An element is Earth."
+            what_year(519), "519 is the yellow pig year. An element is Earth."
         )
 
         self.assertEqual(
