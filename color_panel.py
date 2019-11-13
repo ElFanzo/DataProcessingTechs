@@ -1,4 +1,5 @@
-from tkinter import Tk, Frame, Scale, Label
+from tkinter import Frame, Label, Scale, Tk
+
 from grab import Grab
 
 

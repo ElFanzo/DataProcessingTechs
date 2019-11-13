@@ -1,4 +1,5 @@
-from unittest import TestCase, main
+from unittest import main, TestCase
+
 from chinese_astrology import what_year
 
 
