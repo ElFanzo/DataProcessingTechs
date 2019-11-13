@@ -8,7 +8,7 @@ class Convert:
         :param number: the initial number
         :param base_init: a base of the initial number
         :param base_final: a base of the final number
-        :return: the final number
+        :return: a translated number
         """
         base_init = int(base_init)
         base_final = int(base_final)
@@ -30,10 +30,22 @@ class Convert:
 
     @staticmethod
     def _convert_to_dec(number, base):
+        """Translate a number to the decimal numeral system.
+
+        :param number: the initial number
+        :param base: a base of the initial number
+        :return: a translated number
+        """
         return int(str(number), base=base)
 
     @staticmethod
     def _convert_dec_to_other(number, base):
+        """Translate the decimal number to another numeral system.
+
+        :param number: the initial number
+        :param base: a base of the final number
+        :return: a translated number
+        """
         number = int(number)
 
         if base == 2:
