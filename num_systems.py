@@ -1,8 +1,9 @@
 class Convert:
+    """Class for converting numbers to various numeral systems."""
+
     @staticmethod
     def convert(number, base_init, base_final):
-        """Convert a number with the base_init numeral system to a number with
-        the base_final numeral system.
+        """Translate a number to another numeral system.
 
         :param number: the initial number
         :param base_init: a base of the initial number

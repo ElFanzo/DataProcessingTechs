@@ -32,14 +32,17 @@ class Palette(Frame):
             self.name.configure(text=color)
 
     def change_red(self, val):
+        """Change the shade of red color."""
         self.r = val
         self.change()
 
     def change_green(self, val):
+        """Change the shade of green color."""
         self.g = val
         self.change()
 
     def change_blue(self, val):
+        """Change the shade of blue color."""
         self.b = val
         self.change()
 

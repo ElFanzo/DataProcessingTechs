@@ -1,9 +1,10 @@
-"""Unduplicate .csv files, existing in the current directory."""
+"""Unduplicate CSV files, existing in the current directory."""
 
 import os
 
 
 def unduplicate():
+    """Unduplicate CSV files."""
     files = []
     names = []
     for file in os.listdir("."):

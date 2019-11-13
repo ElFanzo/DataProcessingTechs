@@ -1,5 +1,6 @@
-"""This script combines all the .tsv(tab separated values) files into two .tsv
-files. One contains file names, another - their content.
+"""This script combines all the TSV files into two TSV files.
+
+One contains files' names, another - their content.
 Files are creating in 'results' directory.
 """
 
@@ -7,6 +8,7 @@ import os
 
 
 def combine():
+    """Read TSV files and create two TSV files."""
     try:
         os.mkdir("results")
     except FileExistsError:
