@@ -1,6 +1,6 @@
 """Module for converting numbers to various numeral systems."""
 
-from typing import Tuple, Union
+from typing import Union
 
 
 def convert(number: Union[int, str], base_init: int, base_final: int) -> str:
@@ -11,7 +11,7 @@ def convert(number: Union[int, str], base_init: int, base_final: int) -> str:
     :param base_final: a base of the final number
     :return: converted number
     """
-    base_init, base_final = _bases_validate(base_init, base_final)
+    _bases_validate(base_init, base_final)
 
     if base_init == 10:
         return _convert_dec_to_other(number, base_final)
@@ -22,22 +22,14 @@ def convert(number: Union[int, str], base_init: int, base_final: int) -> str:
     )
 
 
-def _bases_validate(init: int, final: int) -> Tuple[int, int]:
-    try:
-        init = int(init)
-    except ValueError:
-        raise ValueError("Base of the number must be numeric.") from None
-    try:
-        final = int(final)
-    except ValueError:
-        raise ValueError("Base of the number must be numeric.") from None
+def _bases_validate(init: int, final: int):
+    if not isinstance(init, int) or not isinstance(final, int):
+        raise ValueError("Base of the number must be integer.")
 
     if not (1 < init < 37) or not (1 < final < 37):
         raise ValueError(
             "Base of the number must be at least 2 and not more than 36."
         )
-
-    return init, final
 
 
 def _convert_to_dec(number: str, base: int) -> int:
@@ -66,6 +58,9 @@ def _convert_dec_to_other(number: Union[int, str], base: int) -> str:
         raise ValueError(
             "The decimal number can only consist of digits."
         ) from None
+
+    if number < 10 and number < base:
+        return str(number)
 
     if base == 2:
         return bin(number)[2:]
