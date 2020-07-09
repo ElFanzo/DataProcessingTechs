@@ -13,6 +13,9 @@ def convert(number: Union[int, str], base_init: int, base_final: int) -> str:
     """
     _bases_validate(base_init, base_final)
 
+    if base_init == base_final:
+        return number
+
     if base_init == 10:
         return _convert_dec_to_other(number, base_final)
     if base_final == 10:
