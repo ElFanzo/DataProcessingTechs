@@ -69,16 +69,11 @@ def _convert_dec_to_other(number: Union[int, str], base: int) -> str:
     if base == 16:
         return hex(number)[2:].upper()
 
-    res = ""
+    result = ""
     while number:
         mod = number % base
-        if base > 10:
-            t = mod + 48
-            if mod > 9:
-                t += 7
-            res += chr(t)
-        else:
-            res += str(mod)
+        result = f"""{(chr(mod + (48 if mod < 10 else 55))
+                        if base > 10 else str(mod))}{result}"""
         number //= base
 
-    return res[::-1].upper()
+    return result.upper()
