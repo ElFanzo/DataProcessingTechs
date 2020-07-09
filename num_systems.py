@@ -1,7 +1,9 @@
 """Module for converting numbers to various numeral systems."""
 
+from typing import Union
 
-def convert(number, base_init, base_final):
+
+def convert(number: Union[int, str], base_init: int, base_final: int) -> str:
     """Convert a number to another numeral system.
 
     :param number: the initial number
@@ -18,15 +20,15 @@ def convert(number, base_init, base_final):
         )
 
     if base_init == 10:
-        return str(_convert_dec_to_other(number, base_final))
+        return _convert_dec_to_other(number, base_final)
     if base_final == 10:
         return str(_convert_to_dec(number, base_init))
-    return str(
-        _convert_dec_to_other(_convert_to_dec(number, base_init), base_final)
+    return _convert_dec_to_other(
+        _convert_to_dec(number, base_init), base_final
     )
 
 
-def _convert_to_dec(number, base):
+def _convert_to_dec(number: str, base: int) -> int:
     """Convert a number to the decimal numeral system.
 
     :param number: the initial number
@@ -36,7 +38,7 @@ def _convert_to_dec(number, base):
     return int(str(number), base=base)
 
 
-def _convert_dec_to_other(number, base):
+def _convert_dec_to_other(number: Union[int, str], base: int) -> str:
     """Convert the decimal number to another numeral system.
 
     :param number: the initial number
@@ -46,9 +48,9 @@ def _convert_dec_to_other(number, base):
     number = int(number)
 
     if base == 2:
-        return bin(number)[2:].upper()
+        return bin(number)[2:]
     if base == 8:
-        return oct(number)[2:].upper()
+        return oct(number)[2:]
     if base == 16:
         return hex(number)[2:].upper()
 

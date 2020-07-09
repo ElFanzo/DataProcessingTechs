@@ -7,7 +7,7 @@ class TestNumSys(TestCase):
     def test_convert(self):
         self.assertEqual(convert(10, 10, 2), "1010")
         self.assertEqual(convert(1000, 2, 10), "8")
-        self.assertEqual(convert("16", "10", "2"), "10000")
+        self.assertEqual(convert("16", 10, 2), "10000")
         self.assertEqual(convert(1000, 2, 8), "10")
         self.assertEqual(convert(1010, 2, 16), "A")
         self.assertEqual(convert("Python", 35, 36), "MKVTTW")
