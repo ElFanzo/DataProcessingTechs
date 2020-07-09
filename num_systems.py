@@ -18,17 +18,15 @@ def convert(number, base_init, base_final):
         )
 
     if base_init == 10:
-        return str(__convert_dec_to_other(number, base_final))
+        return str(_convert_dec_to_other(number, base_final))
     if base_final == 10:
-        return str(__convert_to_dec(number, base_init))
+        return str(_convert_to_dec(number, base_init))
     return str(
-        __convert_dec_to_other(
-            __convert_to_dec(number, base_init), base_final
-        )
+        _convert_dec_to_other(_convert_to_dec(number, base_init), base_final)
     )
 
 
-def __convert_to_dec(number, base):
+def _convert_to_dec(number, base):
     """Convert a number to the decimal numeral system.
 
     :param number: the initial number
@@ -38,7 +36,7 @@ def __convert_to_dec(number, base):
     return int(str(number), base=base)
 
 
-def __convert_dec_to_other(number, base):
+def _convert_dec_to_other(number, base):
     """Convert the decimal number to another numeral system.
 
     :param number: the initial number
