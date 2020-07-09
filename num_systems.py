@@ -2,12 +2,12 @@
 
 
 def convert(number, base_init, base_final):
-    """Translate a number to another numeral system.
+    """Convert a number to another numeral system.
 
     :param number: the initial number
     :param base_init: a base of the initial number
     :param base_final: a base of the final number
-    :return: a translated number
+    :return: converted number
     """
     base_init = int(base_init)
     base_final = int(base_final)
@@ -29,21 +29,21 @@ def convert(number, base_init, base_final):
 
 
 def __convert_to_dec(number, base):
-    """Translate a number to the decimal numeral system.
+    """Convert a number to the decimal numeral system.
 
     :param number: the initial number
     :param base: a base of the initial number
-    :return: a translated number
+    :return: converted number
     """
     return int(str(number), base=base)
 
 
 def __convert_dec_to_other(number, base):
-    """Translate the decimal number to another numeral system.
+    """Convert the decimal number to another numeral system.
 
     :param number: the initial number
     :param base: a base of the final number
-    :return: a translated number
+    :return: converted number
     """
     number = int(number)
 
