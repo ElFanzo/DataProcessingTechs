@@ -18,7 +18,7 @@ class TestYear(TestCase):
         )
 
         self.assertEqual(
-            what_year("1997"), "1997 is the red ox year. An element is Fire."
+            what_year(1997), "1997 is the red ox year. An element is Fire."
         )
 
         with self.assertRaises(ValueError):
